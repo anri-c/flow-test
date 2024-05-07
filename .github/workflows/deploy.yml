@@ -14,7 +14,7 @@ jobs:
             - name: matrix
               id: matrix
               run: |
-                images=$(echo '["dev","stg","prod"]' | jq -c)
+                envs=$(echo '["dev","stg","prod"]' | jq -c)
             - name: Install dependencies
               run: echo "Installing dependencies"
     build:
