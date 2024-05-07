@@ -8,13 +8,13 @@ jobs:
     prepare:
         name: Prepare
         runs-on: ubuntu-latest
+        outputs:
+            envs: ${{ steps.matrix.outputs.envs }}
         steps:
-            - name: Checkout
-              uses: actions/checkout@v2
-            - name: Set up Node.js
-              uses: actions/setup-node@v2
-              with:
-                  node-version: '14'
+            - name: matrix
+              id: matrix
+              run: |
+                images=$(echo '["dev","stg","prod"]' | jq -c)
             - name: Install dependencies
               run: echo "Installing dependencies"
     build:
