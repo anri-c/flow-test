@@ -1,0 +1,13 @@
+name: test-flow
+
+on:
+  workflow_call
+
+
+jobs:
+    echo:
+        name: Echo
+        runs-on: ubuntu-latest
+        steps:
+            - name: Echo
+              run: echo "Hello, world!"
