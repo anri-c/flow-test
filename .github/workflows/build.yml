@@ -8,6 +8,9 @@ jobs:
     echo:
         name: Echo
         runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                envs: ${{ fromJson(needs.prepare.outputs.envs) }}
         steps:
             - name: Echo
-              run: echo "Hello, world!"
+              run: echo ${{ matrix.envs }}
